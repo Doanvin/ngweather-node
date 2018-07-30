@@ -50,7 +50,10 @@ app.get('/api/location', function (req, res) {
 });
 
 app.get('/api/ip', function (req, res) {
-    const ip = req.ip;
+    const ip = req.headers['x-forwarded-for'] || 
+        req.connection.remoteAddress || 
+        req.socket.remoteAddress ||
+        (req.connection.socket ? req.connection.socket.remoteAddress : null);
     const access_key = '53d7b893744ba0ac3441b7b318c27a87';
 
     // configure the get request url
