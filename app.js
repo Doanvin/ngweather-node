@@ -55,7 +55,7 @@ app.get('/api/ip', function (req, res) {
 
     // configure the get request url
     const options = {
-        url: `http://api.ipstack.com/check?access_key=${access_key}&format=1`,
+        url: `http://api.ipstack.com/${ip}?access_key=${access_key}&format=1`,
         json: true
     };
 
