@@ -14,7 +14,7 @@ app.use(cors(corsOptions));
 
 app.get('/api/forecast', function (req, res) {
     const base_url = 'https://api.darksky.net/forecast';
-    const client_secret = 'c1cfff522b5da01ab9a3d56a1fb53a20'; // Your secret
+    const client_secret = process.env.DARKSKY_SECRET; // Your secret
     const lat = req.query['latitude'];
     const long = req.query['longitude'];
 
@@ -54,7 +54,7 @@ app.get('/api/ip', function (req, res) {
         req.connection.remoteAddress || 
         req.socket.remoteAddress ||
         (req.connection.socket ? req.connection.socket.remoteAddress : null);
-    const access_key = '53d7b893744ba0ac3441b7b318c27a87';
+    const access_key = process.env.IPSTACK_ACCESS_KEY; // your access key
 
     // configure the get request url
     const options = {

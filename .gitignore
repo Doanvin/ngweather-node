@@ -2,6 +2,7 @@ app-dev.js
 
 # Logs
 logs
+.env
 client.txt
 *.log
 npm-debug.log*
